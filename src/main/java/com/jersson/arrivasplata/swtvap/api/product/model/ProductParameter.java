@@ -18,4 +18,8 @@ public class ProductParameter {
 
     @Column(name = "code", length = 10)
     private String code;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Product product;
 }

@@ -57,14 +57,4 @@ public class ProductCategoryControllerImpl implements ProductCategoryController 
                     return Mono.empty();
                 });
     }
-/*
-    @GetMapping("/categories/{categoryId}/catalogs")
-    public Flux<Catalog> getCatalogsByCategory(@PathVariable Long categoryId) {
-        return productCategoryService.findByCategoryName(categoryId);
-    }
-
-    @GetMapping("/catalogs/{catalogId}/categories")
-    public Flux<Category> getCategoriesByCatalog(@PathVariable Long catalogId) {
-        return productCategoryService.getCategoriesByCatalog(catalogId);
-    }*/
 }

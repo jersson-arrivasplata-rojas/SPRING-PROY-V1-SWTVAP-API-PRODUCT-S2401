@@ -18,4 +18,9 @@ public class ProductImage {
 
     @Column(columnDefinition = "TEXT")
     private String path;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Product product;
+
 }

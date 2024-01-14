@@ -3,6 +3,8 @@ package com.jersson.arrivasplata.swtvap.api.product.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "swtvap_products_discounts")
@@ -20,12 +22,16 @@ public class ProductDiscount {
     private Long discountPercentage;
 
     @Column(name = "start_date")
-    private String startDate;
+    private LocalDate startDate;
 
     @Column(name = "end_date")
-    private String endDate;
+    private LocalDate endDate;
 
     @Column(columnDefinition = "TEXT")
     private String otherDetails;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Product product;
 
 }

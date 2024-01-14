@@ -35,7 +35,7 @@ public class Provider {
     @Column(length = 50)
     private String email;
 
-    @Column(name = "whatsapp", columnDefinition = "TINYINT(1)")
+    @Column()
     private Boolean whatsapp;
 
     @Column(length = 250)

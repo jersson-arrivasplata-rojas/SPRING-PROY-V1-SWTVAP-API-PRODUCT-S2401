@@ -14,9 +14,9 @@ INSERT INTO "public"."swtvap_units" (id, unit_name, abbreviation, convertion_fac
 INSERT INTO "public"."swtvap_units" (id, unit_name, abbreviation, convertion_factor, status) VALUES (9, 'Paquete', 'pkt', null, 1);
 
 
-INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, contry_code, email, whatsapp, details, status) VALUES (1,'CHARSAC','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com',1,'All ok', 1);
-INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, contry_code, email, whatsapp, details, status) VALUES (2,'PRINSAC','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com',1,'All ok', 1);
-INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, contry_code, email, whatsapp, details, status) VALUES (3,'Franklin Gomez','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com',1,'All ok', 1);
+INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, country_code, email, whatsapp, details, status) VALUES (1,'CHARSAC','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com', true,'All ok', 1);
+INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, country_code, email, whatsapp, details, status) VALUES (2,'PRINSAC','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com', true,'All ok', 1);
+INSERT INTO "public"."swtvap_providers" (id, name, address, phone, cellphone, country_code, email, whatsapp, details, status) VALUES (3,'Franklin Gomez','Av. del Pinar 650,Miraflores, Lima', '018123562','900514845','+51','fgomez_123@gmail.com', true,'All ok', 1);
 
 
 INSERT INTO "public"."swtvap_products" (id, category_id, code, name, description, price, stock, stock_min, status) VALUES (1, 1, 'PRODUCT-A00001', 'Madera de Cedro', 'Madera de Cedro', 1000, 100, 10, 1);
@@ -37,24 +37,6 @@ INSERT INTO "public"."swtvap_products_categories" (id, product_id, category_id) 
 INSERT INTO "public"."swtvap_products_categories" (id, product_id, category_id) VALUES (7, 7, 1);
 
 
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (1, 1, 10, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (2, 2, 20, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (3, 3, 30, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (4, 4, 40, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (5, 5, 50, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (6, 6, 60, '2021-01-01', '2021-12-31', 1);
-INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date, status) VALUES (7, 7, 70, '2021-01-01', '2021-12-31', 1);
-
-
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (1, 1, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-cedro.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (2, 2, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-pino.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (3, 3, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-roble.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (4, 4, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-caoba.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (5, 5, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-nogal.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (6, 6, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-teca.jpg');
-INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (7, 7, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-cerezo.jpg');
-
-
 INSERT INTO "public"."swtvap_products_providers" (id, product_id, provider_id) VALUES (1, 1, 1);
 INSERT INTO "public"."swtvap_products_providers" (id, product_id, provider_id) VALUES (2, 2, 1);
 INSERT INTO "public"."swtvap_products_providers" (id, product_id, provider_id) VALUES (3, 3, 1);
@@ -71,6 +53,25 @@ INSERT INTO "public"."swtvap_products_units" (id, product_id, unit_id) VALUES (4
 INSERT INTO "public"."swtvap_products_units" (id, product_id, unit_id) VALUES (5, 5, 1);
 INSERT INTO "public"."swtvap_products_units" (id, product_id, unit_id) VALUES (6, 6, 1);
 INSERT INTO "public"."swtvap_products_units" (id, product_id, unit_id) VALUES (7, 7, 1);
+
+
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (1, 1, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-cedro.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (2, 2, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-pino.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (3, 3, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-roble.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (4, 4, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-caoba.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (5, 5, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-nogal.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (6, 6, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-teca.jpg');
+INSERT INTO "public"."swtvap_products_images" (id, product_id, path) VALUES (7, 7, 'https://www.maderasbarber.com/tonewood/es/1000-large_default/madera-de-cerezo.jpg');
+
+
+
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (1, 1, 10, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (2, 2, 20, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (3, 3, 30, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (4, 4, 40, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (5, 5, 50, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (6, 6, 60, '2021-01-01', '2021-12-31');
+INSERT INTO "public"."swtvap_products_discounts" (id, product_id, discount_percentage, start_date, end_date) VALUES (7, 7, 70, '2021-01-01', '2021-12-31');
 
 
 INSERT INTO "public"."swtvap_products_parameters" (id, product_id, code) VALUES (1, 1, 'PARAM-C000001');
