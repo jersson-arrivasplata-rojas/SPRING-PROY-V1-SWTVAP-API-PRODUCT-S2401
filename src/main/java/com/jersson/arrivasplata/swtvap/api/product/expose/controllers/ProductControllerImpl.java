@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping(value = "/api/products", produces = "application/vnd.swtvap-api-product.v1+json")
+@RequestMapping(value = "/api/products", produces = "application/vnd.swtvap-api-products.v1+json")
 public class ProductControllerImpl implements ProductController {
     private final ProductService productService;
     private final ProductMapper productMapper;
