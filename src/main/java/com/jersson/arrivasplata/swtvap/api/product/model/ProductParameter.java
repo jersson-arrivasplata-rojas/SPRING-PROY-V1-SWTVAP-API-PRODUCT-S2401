@@ -16,7 +16,7 @@ public class ProductParameter {
     @Column(name = "product_id")
     private Long productId;
 
-    @Column(name = "code", length = 10)
+    @Column(name = "code", length = 20)
     private String code;
 
     @ManyToOne
