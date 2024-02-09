@@ -18,9 +18,6 @@ public class Product {
     @Column(name = "id")
     private Long productId;
 
-    @Column(name = "category_id")
-    private Long categoryId;
-
     @Column(name = "code", length = 50)
     private String code;
 
