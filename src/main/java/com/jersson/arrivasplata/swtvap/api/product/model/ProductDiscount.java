@@ -30,6 +30,9 @@ public class ProductDiscount {
     @Column(columnDefinition = "TEXT")
     private String otherDetails;
 
+    @Column(name = "deleted_at")
+    private LocalDate deletedAt;
+
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Product product;

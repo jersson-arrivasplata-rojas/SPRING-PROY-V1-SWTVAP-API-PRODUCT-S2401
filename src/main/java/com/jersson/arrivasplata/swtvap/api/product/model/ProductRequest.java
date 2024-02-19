@@ -1,6 +1,7 @@
 package com.jersson.arrivasplata.swtvap.api.product.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import com.jersson.arrivasplata.swtvap.api.product.enums.Status;
 
@@ -19,4 +20,5 @@ public class ProductRequest {
     private Long stockMin;
     private String otherDetails;
     private Status status;
+    private LocalDate deletedAt;
 }

@@ -3,6 +3,8 @@ package com.jersson.arrivasplata.swtvap.api.product.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "swtvap_products_images")
@@ -18,6 +20,9 @@ public class ProductImage {
 
     @Column(columnDefinition = "TEXT")
     private String path;
+
+    @Column(name = "deleted_at")
+    private LocalDate deletedAt;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
