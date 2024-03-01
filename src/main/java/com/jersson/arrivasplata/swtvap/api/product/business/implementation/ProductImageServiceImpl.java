@@ -1,12 +1,16 @@
 package com.jersson.arrivasplata.swtvap.api.product.business.implementation;
 
 import com.jersson.arrivasplata.swtvap.api.product.business.service.ProductImageService;
+import com.jersson.arrivasplata.swtvap.api.product.exception.CustomException;
 import com.jersson.arrivasplata.swtvap.api.product.model.ProductImage;
 import com.jersson.arrivasplata.swtvap.api.product.repository.ProductImageRepository;
+import com.jersson.arrivasplata.swtvap.api.product.util.Common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 @Service
 public class ProductImageServiceImpl implements ProductImageService {
@@ -31,7 +35,16 @@ public class ProductImageServiceImpl implements ProductImageService {
     }
 
     public Mono<Void> deleteById(Long id) {
-        productImageRepository.deleteById(id);
+
+        Optional<ProductImage> productImageOptional = productImageRepository.findById(id);
+        if (!productImageOptional.isPresent()) {
+            throw new CustomException("Client not found with id: " + id);
+        }
+        // Resto de la lógica para eliminar un client
+        ProductImage productImage = productImageOptional.get();
+        productImage.setDeletedAt(Common.builder().build().getCurrentDate());
+        productImageRepository.save(productImage);
+
         return Mono.empty();
     }
 

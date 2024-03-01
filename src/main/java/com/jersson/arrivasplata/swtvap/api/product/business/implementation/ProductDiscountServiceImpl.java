@@ -1,12 +1,17 @@
 package com.jersson.arrivasplata.swtvap.api.product.business.implementation;
 
 import com.jersson.arrivasplata.swtvap.api.product.business.service.ProductDiscountService;
+import com.jersson.arrivasplata.swtvap.api.product.enums.Status;
+import com.jersson.arrivasplata.swtvap.api.product.exception.CustomException;
 import com.jersson.arrivasplata.swtvap.api.product.model.ProductDiscount;
 import com.jersson.arrivasplata.swtvap.api.product.repository.ProductDiscountRepository;
+import com.jersson.arrivasplata.swtvap.api.product.util.Common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 @Service
 public class ProductDiscountServiceImpl implements ProductDiscountService {
@@ -31,7 +36,15 @@ public class ProductDiscountServiceImpl implements ProductDiscountService {
     }
 
     public Mono<Void> deleteById(Long id) {
-        productDiscountRepository.deleteById(id);
+        // Lógica para eliminar un product discount
+        Optional<ProductDiscount> productDiscountOptional = productDiscountRepository.findById(id);
+        if (!productDiscountOptional.isPresent()) {
+            throw new CustomException("Catalog not found with id: " + id);
+        }
+        // Resto de la lógica para eliminar un product Discount
+        ProductDiscount productDiscount = productDiscountOptional.get();
+        productDiscount.setDeletedAt(Common.builder().build().getCurrentDate());
+        productDiscountRepository.save(productDiscount);
         return Mono.empty();
     }
 

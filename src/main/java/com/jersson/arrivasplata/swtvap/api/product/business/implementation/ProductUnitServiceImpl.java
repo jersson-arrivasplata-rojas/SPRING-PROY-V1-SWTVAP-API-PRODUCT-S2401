@@ -32,6 +32,7 @@ public class ProductUnitServiceImpl implements ProductUnitService {
 
     public Mono<Void> deleteById(Long id) {
         productUnitRepository.deleteById(id);
+
         return Mono.empty();
     }
 

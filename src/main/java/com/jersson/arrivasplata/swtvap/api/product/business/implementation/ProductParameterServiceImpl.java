@@ -1,12 +1,16 @@
 package com.jersson.arrivasplata.swtvap.api.product.business.implementation;
 
 import com.jersson.arrivasplata.swtvap.api.product.business.service.ProductParameterService;
+import com.jersson.arrivasplata.swtvap.api.product.exception.CustomException;
 import com.jersson.arrivasplata.swtvap.api.product.model.ProductParameter;
 import com.jersson.arrivasplata.swtvap.api.product.repository.ProductParameterRepository;
+import com.jersson.arrivasplata.swtvap.api.product.util.Common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 @Service
 public class ProductParameterServiceImpl implements ProductParameterService {
@@ -31,7 +35,15 @@ public class ProductParameterServiceImpl implements ProductParameterService {
     }
 
     public Mono<Void> deleteById(Long id) {
-        productParameterRepository.deleteById(id);
+
+        Optional<ProductParameter> productParameterOptional = productParameterRepository.findById(id);
+        if (!productParameterOptional.isPresent()) {
+            throw new CustomException("ProductParameter not found with id: " + id);
+        }
+        ProductParameter productParameter = productParameterOptional.get();
+        productParameter.setDeletedAt(Common.builder().build().getCurrentDate());
+        productParameterRepository.save(productParameter);
+
         return Mono.empty();
     }
 

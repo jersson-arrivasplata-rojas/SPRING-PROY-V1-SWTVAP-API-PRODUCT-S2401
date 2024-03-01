@@ -5,6 +5,7 @@ import com.jersson.arrivasplata.swtvap.api.product.enums.Status;
 import com.jersson.arrivasplata.swtvap.api.product.exception.CustomException;
 import com.jersson.arrivasplata.swtvap.api.product.model.Product;
 import com.jersson.arrivasplata.swtvap.api.product.repository.ProductRepository;
+import com.jersson.arrivasplata.swtvap.api.product.util.Common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -60,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = productOptional.get();
         product.setStatus(Status.INACTIVE);
+        product.setDeletedAt(Common.builder().build().getCurrentDate());
         productRepository.save(product);
 
         return Mono.empty();
