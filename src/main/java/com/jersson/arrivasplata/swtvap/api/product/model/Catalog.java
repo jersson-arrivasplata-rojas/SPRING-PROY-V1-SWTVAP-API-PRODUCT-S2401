@@ -2,7 +2,7 @@ package com.jersson.arrivasplata.swtvap.api.product.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jersson.arrivasplata.swtvap.api.product.enums.Lang;
-import com.jersson.arrivasplata.swtvap.api.product.enums.Status;
+import com.jersson.arrivasplata.swtvap.api.product.enums.StatusCatalog;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +30,7 @@ public class Catalog {
     private String description;
 
     @Enumerated(EnumType.ORDINAL)
-    private Status status;
+    private StatusCatalog status;
 
     @Enumerated(EnumType.ORDINAL)
     private Lang lang;
