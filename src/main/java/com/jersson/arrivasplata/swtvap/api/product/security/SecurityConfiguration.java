@@ -32,6 +32,7 @@ public class SecurityConfiguration {
             "/api/product-discounts/**",
             "/api/product-units/**",
             "/api/product-categories/**",
+            "/api/product-catalogs/**",
             "/api/product-providers/**"
     };
 
