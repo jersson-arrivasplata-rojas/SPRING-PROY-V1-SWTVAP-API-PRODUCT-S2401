@@ -18,8 +18,8 @@ public class ProductParameter {
     @Column(name = "product_id")
     private Long productId;
 
-    @Column(name = "code", length = 20)
-    private String code;
+    @Column(name = "parameter_id")
+    private Long parameterId;
 
     @Column(name = "deleted_at")
     private LocalDate deletedAt;
